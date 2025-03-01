@@ -11,5 +11,5 @@ unzip Sub/vhost_MEGA.txt.zip
 python3 -m venv .Veronica
 source .Veronica/bin/activate
 pip install --upgrade pip
-pip install -r requirments.txt
+pip install -r requirements.txt
 
