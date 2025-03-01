@@ -1,0 +1,6 @@
+__pycache__/
+reports/
+*.pyc
+.cmsenumeration
+subprocess
+Sub/vhost_MEGA.txt

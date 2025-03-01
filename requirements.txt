@@ -1,0 +1,9 @@
+termcolor
+tqdm
+colorama
+wappy
+requests_ntlm
+defusedxml
+pyparsing
+setuptools
+jinja2

