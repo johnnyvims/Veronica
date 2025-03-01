@@ -2,6 +2,7 @@
 ## -- getting started
 
 **note:only usable on kali**
+apt update
 
 apt install python3 python3-venv python3-pip nikto whatweb feroxbuster ffuf dirsearch curl unzip 
 
