@@ -71,18 +71,22 @@ class CME_Enumration:
 
             # Variables to track progress based on output
             total_output_lines = 0
+            output_lines = []
 
             # While the process is running, print the progress based on output lines
             for line in process.stdout:
                 total_output_lines += 1
-                if total_output_lines % 1 == 0:  # Update every 10 lines (or adjust as needed)
+                output_lines.append(line)
+                if total_output_lines % 1 == 0:  # Update every 1 lines
                     print(colored(f"[+] Nikto has output {total_output_lines} lines...", "blue"))  # Print progress message
 
             # Get the output from Nikto
             stdout, stderr = process.communicate()
 
+            final_output = "".join(output_lines) + stdout
+
             print(colored("[+] Nikto Finished.", "green"))
-            self.results['nikto'] = stdout
+            self.results['nikto'] = final_output
             if stderr:
                 print(colored(f"[!] Nikto errors: {stderr}", "red"))
 
@@ -91,17 +95,6 @@ class CME_Enumration:
         except Exception as e:
             print(colored(f"[!] An error occurred while running Nikto: {e}", "red"))
 
-#    def run_nikto(self):
-#        print(colored(f"\n[+] Running Nikto on {self.target}...", "blue"))
-#        nikto_command = ["nikto", "-h", self.target, "-C", "-Tuning", "b"]
-#        try:
-#            result = subprocess.run(nikto_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-#            print(colored("[+] Nikto Finished.", "green"))
-#            self.results['nikto'] = result.stdout
-#        except FileNotFoundError:
-#            print(colored("[!] Nikto is not installed or not in PATH.", "red"))
-#        except Exception as e:
-#            print(colored(f"[!] An error occurred while running Nikto: {e}", "red"))
 
     def run_whatweb(self):
         print(colored(f"\n[+] Running WhatWeb on {self.target}...", "blue"))
@@ -117,7 +110,7 @@ class CME_Enumration:
 
     def run_wappalyzer(self):
         print(colored(f"\n[+] Running Wappalyzer CLI on {self.target}...", "blue"))
-        wappalyzer_command = ["wappy", "--url", self.target]
+        wappalyzer_command = ["wappy", "-u", self.target]
         try:
             result = subprocess.run(wappalyzer_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
             print(colored("[+] Wappalyzer Finished.", "green"))

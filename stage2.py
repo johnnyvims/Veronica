@@ -1,6 +1,7 @@
 import re
 from colorama import Fore, Style
 from subdomainenumrator import SubdomainScanner
+from subdomainenumrator import Passive_Subdomain_Finder
 from cewl import WordlistGenerator
 from directoryenumrator import DiectoryAutomation
 
@@ -28,12 +29,14 @@ class FfufAutomation:
         Runs the enumeration process based on whether the target is an IP or domain.
         """
         # Run CEWL wordlist generation
-        cewler = WordlistGenerator(self.url)
+        cewler = WordlistGenerator(self.url, dev=self.dev)
         cewler.run_cewl()
 
         if self.is_ip:
             print(f"{Fore.RED}[!] The provided URL is an IP address. Skipping subdomain enumeration.{Style.RESET_ALL}")
         else:
+            passive = Passive_Subdomain_Finder(self.url)
+            passive.run()
             print(f"{Fore.GREEN}[+] Starting full enumeration for {self.url}{Style.RESET_ALL}")
             subdomain_enum = SubdomainScanner(self.url, dev=self.dev)
             subdomain_enum.sub_run()  # Run subdomain enumeration

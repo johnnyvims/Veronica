@@ -4,7 +4,7 @@ from colorama import Fore, Style
 import os
 
 class WordlistGenerator:
-    def __init__(self, target):
+    def __init__(self, target, dev=False):
         """
         Initializes the WordlistGenerator with the target URL.
         """
@@ -15,6 +15,7 @@ class WordlistGenerator:
         self.urls_output = "./De_Dup/urls.txt"
         self.temp_cewl_output = "./De_Dup/temp_cewl.txt"
         self.final_cewl_output = "./De_Dup/cewl.txt"
+        self.dev = dev
 
     def remove_existing_files(self):
         """
@@ -43,7 +44,10 @@ class WordlistGenerator:
                 "-o", self.ferox_output
             ]
             print(f"{Fore.BLUE}[+] Running feroxbuster on {self.target}...{Style.RESET_ALL}")
-            subprocess.run(ferox_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+            if self.dev == False:
+                subprocess.run(ferox_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
+            elif self.dev == True:
+                subprocess.run(ferox_command, check=True)
 
             # Step 2: Process ferox.txt to extract URLs
             grep_command = (
@@ -70,7 +74,7 @@ class WordlistGenerator:
 
             # Step 4: Sort and remove duplicates from the cewl output
             sort_command = f"sort -u {self.temp_cewl_output} >> {self.final_cewl_output} && rm {self.temp_cewl_output}"
-            print(f"{Fore.BLUE}[+] Sorting and deduplicating cewl output...{Style.RESET_ALL}")
+            print(f"{Fore.GREEN}[+] Sorting and deduplicating cewl output...{Style.RESET_ALL}")
             subprocess.run(sort_command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
 
             print(f"{Fore.GREEN}[+] Feroxbuster cewl wordlist completed.{Style.RESET_ALL}")

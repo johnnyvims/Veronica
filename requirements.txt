@@ -1,9 +1,9 @@
 termcolor
 tqdm
 colorama
-wappy
 requests_ntlm
 defusedxml
 pyparsing
 setuptools
 jinja2
+git+https://github.com/gokulapap/wappalyzer-cli.git

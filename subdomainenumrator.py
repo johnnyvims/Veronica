@@ -34,6 +34,9 @@ class SubdomainScanner:
             
             
             # Run the ffuf command
+            #debug
+            #result = subprocess.run(ffuf_command, check=True)
+
             result = subprocess.run(ffuf_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE, check=True)
            
             #debug
@@ -194,3 +197,48 @@ class SubdomainScanner:
         # Run ffuf without filters, as per your logic in case of one result found.
         self.run_ffuf_with_filter("", "")
 
+
+
+
+
+
+class Passive_Subdomain_Finder:
+    def __init__(self, domain):
+        self.domain = self.clean_domain(domain)
+        self.output = []
+    
+    def clean_domain(self, domain):
+        domain = re.sub(r'^(https?://|www\.)', '', domain)
+        return re.search(r'[^.]+\.[^.]+$', domain).group(0) if re.search(r'[^.]+\.[^.]+$', domain) else domain
+    
+    def run_subfinder(self):
+        if self.domain.endswith(".htb"):
+            print(Fore.YELLOW + "[!] You are running subdomain enumeration on a Hack The Box machine. Skipping subdomain enumeration. The next stage should catch any vhosting for your Hack The Box machine." + Style.RESET_ALL)
+            return
+
+        print(Fore.CYAN + "--- SUBFINDER ---" + Style.RESET_ALL)
+        print("\n")
+        print(f"{Fore.BLUE}[-] starting subfinder {Style.RESET_ALL}")
+        try:
+            result = subprocess.run(
+                ["subfinder", "-d", self.domain, "--silent"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
+            self.output = result.stdout.strip().split("\n") if result.stdout.strip() else []
+        except Exception as e:
+            print(Fore.RED + f"[!]Error running subfinder: {e}" + Style.RESET_ALL)
+    
+    def check_output(self):
+        if not self.output:
+            print(Fore.BLUE + "[-]No output found." + Style.RESET_ALL)
+        else:
+            print(f"{Fore.GREEN}[+] Found subdomains with passive subfinder {Style.RESET_ALL}")
+            print(f"{Fore.GREEN} ")
+            print(Fore.GREEN + "\n".join(self.output) + Style.RESET_ALL)
+            print("\n")
+
+    def run(self):
+        self.run_subfinder()
+        self.check_output()
