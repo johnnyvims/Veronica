@@ -1,9 +1,9 @@
 import re
 from colorama import Fore, Style
-from subdomainenumrator import SubdomainScanner
-from subdomainenumrator import Passive_Subdomain_Finder
+from subdomainenumerator import SubdomainScanner
+from subdomainenumerator import Passive_Subdomain_Finder
 from cewl import WordlistGenerator
-from directoryenumrator import DiectoryAutomation
+from directoryenumerator import DiectoryAutomation
 
 class FfufAutomation:
     def __init__(self, url, cms=None, dev=False):
