@@ -1,6 +1,6 @@
 # Veronica
 
-**Veronica** is an automated reconnaissance tool designed for pentesters, bug bounty hunters, and anyone who works full-time but still wants to dominate Hack The Box.  
+**Veronica** is an automated reconnaissance tool designed for pentesters, bug bounty hunters, and anyone who works full-time and needs something to run while there at work or sleeping.  
 Start it, go to sleep, and wake up with a full attack surface mapped out — CMS info, directories, CVEs, and more.
 
 ---
