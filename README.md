@@ -35,3 +35,13 @@ pip install -r requirements.txt
 
 ## usage
 python3 ReconBuster.py
+
+---
+
+## Sample Output
+
+Here’s an example of Veronica’s recon output:
+
+![Recon Screenshot](Screenshot1.png)
+![Recon Screenshot](Screenshot2.png)
+
