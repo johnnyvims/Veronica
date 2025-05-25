@@ -9,8 +9,9 @@ Start it, go to sleep, and wake up with a full attack surface mapped out — CMS
 
 - Web recon (HTTP/HTTPS)
 - CMS
-- Subdomain & directory brute-forcing
+- Subdomain & directory brute-forcing (auto applies filters)
 - CVE enumeration
+- Custom wordlist with Cewl
 
 ---
 
@@ -22,7 +23,7 @@ sudo apt update
 sudo apt install -y python3 python3-venv python3-pip nikto whatweb feroxbuster ffuf dirsearch curl unzip subfinder
 
 
-## clone and setup
+## Clone and Setup
 git clone https://github.com/johnnyvims/Veronica.git
 cd Veronica
 unzip Sub/vhost_MEGA.txt.zip
@@ -33,7 +34,7 @@ pip install -r requirements.txt
 
 ---
 
-## usage
+## Usage
 python3 ReconBuster.py
 
 ---
